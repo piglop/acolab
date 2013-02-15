@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-RailsBaseApp::Application.load_tasks
+Hackerspace::Application.load_tasks

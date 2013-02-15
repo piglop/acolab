@@ -205,4 +205,4 @@ en:
     errors:
       <<: *errors
 
-  app: "RailsBaseApp"
+  app: "Hackerspace"

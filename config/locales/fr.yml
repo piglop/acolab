@@ -223,5 +223,5 @@ fr:
     errors:
       <<: *errors
 
-  app: "RailsBaseApp"
+  app: "Hackerspace"
   
