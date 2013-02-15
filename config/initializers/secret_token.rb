@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Hackerspace::Application.config.secret_token = '5b46d788255afd2d09ef87f4042bea4d38d9c1a91667bfc08e553e86aa3349f70b53c70bc61f6beaab51548a2eafee16bb06dc622997794c32c44b84e24ca831'
+Hackerspace::Application.config.secret_token = '2c01b8807c30161732229461f7bf8946b7dd54bdafa913dc40780930a2ed5eb485101e4b22f4db455f01290d262dd47aa1044efc5b61ac7e296f32ca1a1dbab6'
