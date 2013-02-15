@@ -11,8 +11,10 @@
         .navbar-inner
           %a.brand{href: root_path}= t("app")
           %ul.nav
-            %li.active
+            %li{class: params[:controller] == "home" ? "active" : ""}
               %a{href: root_path} Home
+            %li{class: params[:controller] == "projects" ? "active" : ""}
+              %a{href: projects_path} Projects
               
       - flash.each do |kind, value|
         .alert{class: "alert-#{kind}"}
