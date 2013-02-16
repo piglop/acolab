@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
   load_and_authorize_resource
 
+  before_filter do
+    add_crumb t("navigation.projects"), projects_path
+  end
+
   # GET /projects
   # GET /projects.json
   def index

@@ -1,14 +1,13 @@
 - model_class = @project.class
-- @title = t('.title')
+- add_crumb t(".title", name: @project.id)
+- content_for(:title, t(".title", name: @project.id))
 
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @project.name
-%p
-  %strong= model_class.human_attribute_name(:description) + ':'
-  %br
-  = @project.description
+%dl.dl-horizontal
+  %dt= model_class.human_attribute_name(:name)
+  %dd= @project.name
+%dl.dl-horizontal
+  %dt= model_class.human_attribute_name(:description)
+  %dd= @project.description
 
 .form-actions
   = link_to t('.back'), projects_path, :class => 'btn'

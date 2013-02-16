@@ -1,7 +1,7 @@
 !!!
 %html{lang: I18n.locale}
   %head
-    %title= content_for?(:title) ? "#{content_for(:title)} - #{t("app")}" : t("app")
+    %title= content_for?(:title) ? "#{content_for(:title)} - #{t("app")}".html_safe : t("app")
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}/
     = stylesheet_link_tag    "application", :media => "all"
     = csrf_meta_tags
@@ -12,10 +12,20 @@
           %a.brand{href: root_path}= t("app")
           %ul.nav
             %li{class: params[:controller] == "home" ? "active" : ""}
-              %a{href: root_path} Home
+              %a{href: root_path}= t("navigation.home")
             %li{class: params[:controller] == "projects" ? "active" : ""}
-              %a{href: projects_path} Projects
-              
+              %a{href: projects_path}= t("navigation.projects")
+
+      - render_crumbs do |crumbs|
+        %ul.breadcrumb
+          - crumbs.each_with_index do |crumb, index|
+            - if index < crumbs.size - 1
+              %li
+                = link_to *crumb
+                %span.divider /
+            - else
+              %li.active= crumb[0]
+
       - flash.each do |kind, value|
         .alert{class: "alert-#{kind}"}
           %button.close{"data-dismiss" => "alert", :type => "button"} &times;

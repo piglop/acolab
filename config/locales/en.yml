@@ -206,3 +206,6 @@ en:
       <<: *errors
 
   app: "Hackerspace"
+  navigation:
+    home: Home
+  

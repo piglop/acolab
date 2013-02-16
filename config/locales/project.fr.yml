@@ -6,7 +6,7 @@ fr:
       project:
         id: Identifiant
         name: Nom
-        description: Description
+        description: Signalement
         created_at: Date de création
         updated_at: Dernière mise à jour
 
@@ -14,23 +14,24 @@ fr:
     index:
       title: Liste des projets
       actions: Actions
+      show: Voir
       edit: &edit Modifier
       destroy: &destroy Supprimer
       confirm: &confirm Le projet sera supprimé. Êtes vous sûr ?
       new: Créer un projet
 
     edit:
-      title: Modification d'un projet
+      title: "Modification du projet %{name}"
 
     new:
       title: Nouveau projet
       
     form:
-      submit: Créer le projet
+      submit: Enregistrer le projet
       cancel: Annuler
 
     show:
-      title: Projet
+      title: "Projet %{name}"
       edit: *edit
       destroy: *destroy
       confirm: *confirm

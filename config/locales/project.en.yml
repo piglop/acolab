@@ -14,23 +14,24 @@ en:
     index:
       title: List of projects
       actions: Actions
+      show: Show
       edit: &edit Edit
       destroy: &destroy Delete
       confirm: &confirm The project will by deleted. Are you sure?
       new: Add a project
 
     edit:
-      title: Modify a project
+      title: "Modification of project %{name}"
 
     new:
       title: New project
 
     form:
-      submit: Create the project
+      submit: Save the project
       cancel: Cancel
       
     show:
-      title: Project
+      title: "Project %{name}"
       edit: *edit
       destroy: *destroy
       confirm: *confirm

@@ -224,4 +224,6 @@ fr:
       <<: *errors
 
   app: "Hackerspace"
+  navigation:
+    home: Accueil
   

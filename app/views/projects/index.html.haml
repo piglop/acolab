@@ -1,20 +1,18 @@
 - model_class = Project.new.class
-%ul.breadcrumb
-  %li.active= t('.title')
+
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:description)
       %th=t('.actions')
   %tbody
     - @projects.each do |project|
       %tr
-        %td= link_to project.id, project_path(project)
         %td= project.name
         %td= project.description
         %td
+          = link_to t('.show'), project_path(project), :class => 'btn btn-mini'
           = link_to t('.edit'), edit_project_path(project), :class => 'btn btn-mini' if can? :update, project
           = link_to t('.destroy'), project_path(project), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-mini btn-danger' if can? :destroy, project
 
