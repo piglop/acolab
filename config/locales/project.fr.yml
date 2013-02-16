@@ -1,0 +1,40 @@
+fr:
+  activerecord:
+    models:
+      project: Projet
+    attributes:
+      project:
+        id: Identifiant
+        name: Nom
+        description: Description
+        created_at: Date de création
+        updated_at: Dernière mise à jour
+
+  projects:
+    index:
+      title: Liste des projets
+      actions: Actions
+      edit: &edit Modifier
+      destroy: &destroy Supprimer
+      confirm: &confirm Le projet sera supprimé. Êtes vous sûr ?
+      new: Créer un projet
+
+    edit:
+      title: Modification d'un projet
+
+    new:
+      title: Nouveau projet
+      
+    form:
+      submit: Créer le projet
+      cancel: Annuler
+
+    show:
+      title: Projet
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Retour
+      
+  navigation:
+    projects: Projets

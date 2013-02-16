@@ -1,0 +1,40 @@
+en:
+  activerecord:
+    models:
+      project: Project
+    attributes:
+      project:
+        id: ID
+        name: Name
+        description: Description
+        created_at: Creation date
+        updated_at: Last update
+  
+  projects:
+    index:
+      title: List of projects
+      actions: Actions
+      edit: &edit Edit
+      destroy: &destroy Delete
+      confirm: &confirm The project will by deleted. Are you sure?
+      new: Add a project
+
+    edit:
+      title: Modify a project
+
+    new:
+      title: New project
+
+    form:
+      submit: Create the project
+      cancel: Cancel
+      
+    show:
+      title: Project
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Back
+
+  navigation:
+    projects: Projects
