@@ -1,12 +1,11 @@
-- model_class = @project.class
-- add_crumb t(".title", name: @project.id)
 - content_for(:title, t(".title", name: @project.id))
+- add_crumb content_for(:title)
 
 %dl.dl-horizontal
-  %dt= model_class.human_attribute_name(:name)
+  %dt= @project.class.human_attribute_name(:name)
   %dd= @project.name
 %dl.dl-horizontal
-  %dt= model_class.human_attribute_name(:description)
+  %dt= @project.class.human_attribute_name(:description)
   %dd= @project.description
 
 .form-actions

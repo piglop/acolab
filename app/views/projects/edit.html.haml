@@ -1,5 +1,4 @@
-- model_class = @project.class
-- add_crumb t('.title', name: @project.id)
 - content_for :title, t('.title', name: @project.id)
+- add_crumb content_for(:title)
 
 = render :partial => "form"
