@@ -17,14 +17,24 @@ $(document).ready ->
         images.off('click')
         closeButton.off('click')
         saveButton.off('click')
+        saveButton.off('change')
         selector.modal('hide')
         callback(url)
       
       selector.on "hide", ->
         finish(null)
-        
+      
+      updateSelectedImage = ->
+        url = urlInput.val()
+        images.removeClass("selected")
+        images.filter(-> $(this).attr("data-full-image-url") == url).addClass("selected")
+      
       images.css(cursor: "pointer").on "click", ->
-        finish($(this).attr("data-full-image-url"))
+        urlInput.val($(this).attr("data-full-image-url"))
+        updateSelectedImage()
+        
+      urlInput.on "change", ->
+        updateSelectedImage()
       
       closeButton.on "click", ->
         finish(null)
