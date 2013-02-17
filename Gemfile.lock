@@ -94,6 +94,8 @@ GEM
     multi_xml (0.5.3)
     mysql2 (0.3.11)
     orm_adapter (0.4.0)
+    pagedown-rails (1.0.1)
+      railties (~> 3.1)
     polyglot (0.3.3)
     quiet_assets (1.0.1)
       railties (~> 3.1)
@@ -181,6 +183,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mysql2
+  pagedown-rails
   quiet_assets
   rails (~> 3.2.12)
   rails-cancan-bootstrap-scaffold!

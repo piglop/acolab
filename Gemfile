@@ -61,4 +61,5 @@ gem 'rails-cancan-bootstrap-scaffold',
     #:git => 'git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git', :branch => "no_title"
 gem 'bootstrap_forms'
 gem 'crummy', '~> 1.7.0'
+gem 'pagedown-rails'
 gem 'redcarpet'
