@@ -1,0 +1,15 @@
+- content_for :title, t('.title')
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= t('.actions')
+  %tbody
+    - @images.each do |image|
+      %tr
+        %td
+          = link_to t('.show'), image_path(image), :class => 'btn btn-mini'
+          = link_to t('.edit'), edit_image_path(image), :class => 'btn btn-mini' if can? :update, image
+          = link_to t('.destroy'), image_path(image), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-mini btn-danger' if can? :destroy, image
+
+= link_to t('.new'), new_image_path, :class => 'btn btn-primary' if can? :create, ::Image

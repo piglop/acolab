@@ -1,0 +1,4 @@
+- content_for :title, t('.title', name: @image.id)
+- add_crumb content_for(:title)
+
+= render :partial => "form"

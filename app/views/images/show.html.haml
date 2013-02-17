@@ -1,0 +1,8 @@
+- content_for(:title, t(".title", name: @image.id))
+- add_crumb content_for(:title)
+
+
+.form-actions
+  = link_to t('.back'), images_path, :class => 'btn'
+  = link_to t('.edit'), edit_image_path(@image), :class => 'btn' if can? :update, @image
+  = link_to t('.destroy'), image_path(@image), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @image

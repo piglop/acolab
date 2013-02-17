@@ -1,0 +1,42 @@
+en:
+  activerecord:
+    models:
+      image: Image
+    attributes:
+      image:
+        id: ID
+        created_at: Creation date
+        updated_at: Last update
+  
+  images:
+    index:
+      title: List of images
+      actions: Actions
+      show: Show
+      edit: &edit Edit
+      destroy: &destroy Delete
+      confirm: &confirm The image will by deleted. Are you sure?
+      new: Add an image
+
+    edit:
+      title: "Modification of image %{name}"
+
+    new:
+      title: New image
+
+    form:
+      submit: Save the image
+      cancel: Cancel
+      
+    show:
+      title: "Image %{name}"
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Back
+
+    created: The image was successfully created.
+    updated: The image was successfully updated.
+      
+  navigation:
+    images: Images
