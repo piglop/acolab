@@ -1,7 +1,16 @@
 = bootstrap_form_for @project, :html => { :class => 'form-horizontal' } do |f|
   = f.text_field :name
   = f.text_area :description, :rows => 5
-  = f.text_area :content, :rows => [@project.content.to_s.split(/\n/).size, 20].max
+  .row-fluid
+    .span8
+      .control-group
+        %label.control-label{for: "project_content"}= Project.human_attribute_name(:content)
+        .controls
+          #wmd-button-bar
+          %textarea.wmd-input{name: "project[content]", rows: 20}= @project.content
+    .span4
+      %p= t(".preview")
+      #wmd-preview
   
   .form-actions
     = f.submit t('.submit'), :class => 'btn btn-primary'

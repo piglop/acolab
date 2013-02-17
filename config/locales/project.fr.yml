@@ -7,6 +7,7 @@ fr:
         id: Identifiant
         name: Nom
         description: Description
+        content: Contenu
         created_at: Date de création
         updated_at: Dernière mise à jour
 
@@ -29,6 +30,7 @@ fr:
     form:
       submit: Enregistrer le projet
       cancel: Annuler
+      preview: "Prévisualisation :"
 
     show:
       title: "Projet %{name}"
