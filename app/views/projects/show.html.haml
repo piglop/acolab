@@ -7,7 +7,8 @@
       %h1= @project.name
       %p= @project.description
     
-    .markdown= preserve @project.content
+    .content
+      != Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(@project.content)
 
     .form-actions
       = link_to t('.back'), projects_path, :class => 'btn'
