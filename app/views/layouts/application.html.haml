@@ -24,6 +24,8 @@
                 %a{href: users_path}= t("navigation.users")
               
           %ul.nav.pull-right
+            %li
+              = link_to "Redmine", "http://redmine.hackerspace.ouvrages-web.fr/projects/hackerspace/wiki"
             - if current_user
               %li
                 = link_to t("navigation.edit_registration"), edit_user_registration_path
