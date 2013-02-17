@@ -20,6 +20,7 @@ fr:
       destroy: &destroy Supprimer
       confirm: &confirm Le projet sera supprimé. Êtes vous sûr ?
       new: Créer un projet
+      empty: Il n'y a encore aucun projet.
 
     edit:
       title: "Modification du projet %{name}"
