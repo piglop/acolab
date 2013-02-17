@@ -62,3 +62,4 @@ gem 'rails-cancan-bootstrap-scaffold',
 gem 'bootstrap_forms'
 gem 'crummy', '~> 1.7.0'
 gem 'redcarpet'
+gem 'markitup-rails'
