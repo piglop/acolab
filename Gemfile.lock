@@ -10,8 +10,10 @@ GIT
   specs:
     bootstrap_forms (2.0.8)
 
-PATH
-  remote: ../rails-cancan-bootstrap-scaffold
+GIT
+  remote: git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git
+  revision: 3f89a74b8f2291689588b404d0ec4123cf688dee
+  branch: rails_base_app
   specs:
     rails-cancan-bootstrap-scaffold (0.0.1)
       bootstrap_forms
