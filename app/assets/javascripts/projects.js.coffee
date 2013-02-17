@@ -4,20 +4,23 @@ $(document).ready ->
     editor = new Markdown.Editor(converter)
     
     editor.hooks.set "insertImageDialog", (callback) ->
-      content = $("#image-selector").html()
-      popup = $("<div>").addClass("wmd-prompt-dialog").css
-        position: "fixed"
-        left: "10%"
-        top: "10%"
-        width: "80%"
-        height: "80%"
-        "z-index": 2000
-      .html(content).appendTo("body")
-      popup.find("img").css(cursor: "pointer").click ->
-        popup.remove()
-        console.log $(this).attr("data-url")
-        callback($(this).attr("data-url"))
-      #editor.ui.prompt "foo", "yes", callback
+      selector = $("#image-selector")
+      images = selector.find("img[data-full-image-url]")
+      selector.modal()
+      
+      finish = (url) ->
+        console.log ["finish", url]
+        selector.off('hide')
+        images.off('click')
+        selector.modal('hide')
+        callback(url)
+      
+      selector.on "hide", ->
+        finish(null)
+        
+      images.css(cursor: "pointer").on "click", ->
+        finish($(this).attr("data-full-image-url"))
+        
       true # tell the editor that we'll take care of getting the image url
 
     
