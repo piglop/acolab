@@ -11,7 +11,7 @@
       %dd= @project.description
     %dl.dl-horizontal
       %dt= @project.class.human_attribute_name(:content)
-      %dd= @project.content
+      %dd.markdown= preserve @project.content
 
     .form-actions
       = link_to t('.back'), projects_path, :class => 'btn'
