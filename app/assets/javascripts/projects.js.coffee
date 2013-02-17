@@ -52,7 +52,7 @@ $(document).ready ->
   $('#project-toc').affix
     offset: $('#project-toc').position()
 
-  projectThumbnails = $(".project-list .thumbnail")
+  projectThumbnails = $(".project-list .project")
   $.each ["title", "description", "actions"], (part) ->
     items = projectThumbnails.find(".#{this}")
     items.css(display: 'block')
