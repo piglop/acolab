@@ -5,18 +5,17 @@
     - if @projects.blank?
       %p.alert.alert-notice= t(".empty")
     - else
-      %table.table.table-striped
-        %thead
-          %tr
-            %th= Project.human_attribute_name(:name)
-            %th= t('.actions')
-        %tbody
-          - @projects.each do |project|
-            %tr
-              %td= link_to project.name, project
-              %td
-                = link_to t('.show'), project_path(project), :class => 'btn btn-mini'
-                = link_to t('.edit'), edit_project_path(project), :class => 'btn btn-mini' if can? :update, project
-                = link_to t('.destroy'), project_path(project), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-mini btn-danger' if can? :destroy, project
-
+      %ul.thumbnails.project-list
+        - @projects.each do |project|
+          %li.span4
+            .thumbnail
+              = link_to project, class: "title" do
+                %h2= project.name
+              %p.description= project.description
+              %p.actions
+                = link_to t('.show'), project_path(project), :class => 'btn'
+                = link_to t('.edit'), edit_project_path(project), :class => 'btn' if can? :update, project
+                = link_to t('.destroy'), project_path(project), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, project
+.row
+  .span12
     = link_to t('.new'), new_project_path, :class => 'btn btn-primary' if can? :create, ::Project
