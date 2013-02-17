@@ -7,8 +7,9 @@
       %h1= @project.name
       %p= @project.description
 .row-fluid
-  .span3.bs-docs-sidebar
-    != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
+  .span3
+    #project-toc
+      != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
   .span9
     != Redcarpet::Markdown.new(ProjectRenderer.new).render(@project.content)
 

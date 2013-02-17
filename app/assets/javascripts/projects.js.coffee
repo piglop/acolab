@@ -9,4 +9,6 @@ $(document).ready ->
     element = $(this)
     converted = converter.makeHtml(element.html())
     element.html(converted)
-    
+  
+  $('#project-toc').affix
+    offset: $('#project-toc').position()
