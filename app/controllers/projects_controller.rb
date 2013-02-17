@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
   def create
     respond_to do |format|
       if @project.save
+        current_user.add_role :manager, @project
         format.html { redirect_to @project, flash: {success: t("projects.created")} }
         format.json { render json: @project, status: :created, location: @project }
       else
