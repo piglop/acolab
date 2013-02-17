@@ -1,6 +1,12 @@
 = bootstrap_form_for @project, :html => { :class => 'form-horizontal' } do |f|
   = f.text_field :name
   = f.text_area :description, :rows => 5
+  #image-selector.hide
+    %ul.thumbnails
+      - Image.accessible_by(current_ability).each do |image|
+        - next unless image.file?
+        %li.span3
+          = image_tag image.file.url(:thumbnail), class: "img-polaroid", "data-url" => image.file.url(:full)
   .control-group
     .control-label
       %label{for: "project_content"}= Project.human_attribute_name(:content)
