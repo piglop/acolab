@@ -6,6 +6,8 @@
     .hero-unit
       %h1= @project.name
       %p= @project.description
+      %p
+        %em= "par " + @project.author.name if @project.author.try(:name).present?
 .row
   - if @project.content.blank?
     .span12

@@ -53,7 +53,7 @@ $(document).ready ->
     offset: $('#project-toc').position()
 
   projectThumbnails = $(".project-list .project")
-  $.each ["title", "description", "actions"], (part) ->
+  $.each ["title", "description", "actions", "author"], (part) ->
     items = projectThumbnails.find(".#{this}")
     items.css(display: 'block')
     max = 0
