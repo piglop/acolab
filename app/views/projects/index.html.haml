@@ -6,13 +6,11 @@
       %thead
         %tr
           %th= Project.human_attribute_name(:name)
-          %th= Project.human_attribute_name(:description)
           %th= t('.actions')
       %tbody
         - @projects.each do |project|
           %tr
-            %td= project.name
-            %td= project.description
+            %td= link_to project.name, project
             %td
               = link_to t('.show'), project_path(project), :class => 'btn btn-mini'
               = link_to t('.edit'), edit_project_path(project), :class => 'btn btn-mini' if can? :update, project
