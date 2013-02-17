@@ -11,7 +11,8 @@
     #project-toc
       != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
   .span9
-    != Redcarpet::Markdown.new(ProjectRenderer.new).render(@project.content)
+    .project-content
+      != Redcarpet::Markdown.new(ProjectRenderer.new).render(@project.content)
 
 .row-fluid
   .form-actions
