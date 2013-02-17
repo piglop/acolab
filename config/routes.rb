@@ -1,9 +1,10 @@
 Hackerspace::Application.routes.draw do
   resources :images
-
-  devise_for :users
-  
   resources :projects
+  
+  resources :users
+
+  devise_for :users, path: 'auth'
 
   root :to =>  "home#index"
 

@@ -4,10 +4,11 @@ class Ability
   def initialize(user)
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
-    if current_user.has_role? :admin
+    if user and user.has_role? :admin
       can :manage, :all
     else
       can :read, :all
+      cannot :read, User
     end
   end
 end
