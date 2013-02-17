@@ -17,6 +17,7 @@ fr:
       destroy: &destroy Supprimer
       confirm: &confirm L'image sera supprimée. Êtes vous sûr ?
       new: Créer une image
+      empty: La liste est vide.
 
     edit:
       title: "Modification de l'image %{name}"

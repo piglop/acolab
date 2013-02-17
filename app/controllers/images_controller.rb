@@ -41,6 +41,7 @@ class ImagesController < ApplicationController
   def create
     respond_to do |format|
       if @image.save
+        current_user.add_role :manager, @image
         format.html { redirect_to @image, flash: {success: t("images.created")} }
         format.json { render json: @image, status: :created, location: @image }
       else
