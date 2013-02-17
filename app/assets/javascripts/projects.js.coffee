@@ -52,13 +52,16 @@ $(document).ready ->
   $('#project-toc').affix
     offset: $('#project-toc').position()
 
-  projectThumbnails = $(".project-list .project")
-  $.each ["title", "description", "actions", "author"], (part) ->
-    items = projectThumbnails.find(".#{this}")
-    items.css(display: 'block')
-    max = 0
-    $.each items, ->
-      height = $(this).height()
-      max = height if height > max
-    items.css(height: max)
+  updateProjectThumbnails = ->
+    projectThumbnails = $(".project-list .project")
+    $.each ["title", "description", "actions", "author"], (part) ->
+      items = projectThumbnails.find(".#{this}")
+      items.css(display: 'block', height: 'auto')
+      max = 0
+      $.each items, ->
+        height = $(this).height()
+        max = height if height > max
+      items.css(height: max)
+  updateProjectThumbnails()
+  $(window).on "resize", updateProjectThumbnails
   
