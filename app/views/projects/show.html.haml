@@ -3,15 +3,11 @@
 
 .row-fluid
   .span12
-    %dl.dl-horizontal
-      %dt= @project.class.human_attribute_name(:name)
-      %dd= @project.name
-    %dl.dl-horizontal
-      %dt= @project.class.human_attribute_name(:description)
-      %dd= @project.description
-    %dl.dl-horizontal
-      %dt= @project.class.human_attribute_name(:content)
-      %dd.markdown= preserve @project.content
+    .hero-unit
+      %h1= @project.name
+      %p= @project.description
+    
+    .markdown= preserve @project.content
 
     .form-actions
       = link_to t('.back'), projects_path, :class => 'btn'

@@ -9,6 +9,7 @@ en:
         description: Description
         created_at: Creation date
         updated_at: Last update
+        content: Content
   
   projects:
     index:
@@ -37,5 +38,8 @@ en:
       confirm: *confirm
       back: Back
 
+    created: The project was successfully created.
+    updated: The project was successfully updated.
+      
   navigation:
     projects: Projects
