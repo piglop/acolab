@@ -18,9 +18,27 @@
 input[type=text], input[type=email], input[type=password], textarea, .input-block-level
   +input-block-level
 
-#project-toc
-  top: 2px
-  width: 220px
+@media screen and (max-width: 767px)
+  #project-toc
+    position: static
+    width: auto
+    top: 0
+
+@media screen and (min-width: 768px)
+  #project-toc
+    top: 2px
+    width: 3*42px + 2*20px
+  
+@media screen and (min-width: 980px)
+  #project-toc
+    top: 2px
+    width: 3*60px + 2*20px
+  
+@media screen and (min-width: 1200px)
+  #project-toc
+    top: 2px
+    width: 3*70px + 2*30px
+  
 
 #image-selector
   left: 10%
