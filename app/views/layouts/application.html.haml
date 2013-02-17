@@ -15,6 +15,8 @@
               %a{href: root_path}= t("navigation.home")
             %li{class: params[:controller] == "projects" ? "active" : ""}
               %a{href: projects_path}= t("navigation.projects")
+            %li{class: params[:controller] == "images" ? "active" : ""}
+              %a{href: images_path}= t("navigation.images")
 
       - render_crumbs do |crumbs|
         %ul.breadcrumb
