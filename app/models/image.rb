@@ -4,5 +4,5 @@ class Image < ActiveRecord::Base
       :styles => { :thumbnail => "260x180>", :full => "700>" },
       :convert_options => {:thumbnail => "-gravity center -extent 260x180"}
 
-  belongs_to :user
+  belongs_to :owner, class_name: "User"
 end

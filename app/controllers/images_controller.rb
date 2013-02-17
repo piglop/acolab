@@ -39,6 +39,7 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
+    @image.owner = current_user
     respond_to do |format|
       if @image.save
         current_user.add_role :manager, @image

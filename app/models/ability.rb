@@ -7,28 +7,15 @@ class Ability
     if user and user.has_role? :admin
       can :manage, :all
     else
-      can :read, Project
-      can :update, Project do |project|
-        user.has_role? :editor, project or
-          user.has_role? :manager, project
-      end
-      can :destroy, Project do |project|
-        user.has_role? :manager, project
-      end
-      can :create, Project
+      can :read,    Project
+      can :create,  Project, author_id: user.id
+      can :update,  Project, author_id: user.id
+      can :destroy, Project, author_id: user.id
 
-      can :read, Image do |image|
-        user.has_role? :editor, image or
-          user.has_role? :manager, image
-      end
-      can :update, Image do |image|
-        user.has_role? :editor, image or
-          user.has_role? :manager, image
-      end
-      can :destroy, Image do |image|
-        user.has_role? :manager, image
-      end
-      can :create, Image
+      can :read,    Image, owner_id: user.id
+      can :create,  Image, owner_id: user.id
+      can :update,  Image, owner_id: user.id
+      can :destroy, Image, owner_id: user.id
     end
   end
 end
