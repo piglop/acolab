@@ -6,6 +6,11 @@
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
       %h3 Modal header
     .modal-body
+      .well
+        .form-inline
+          %input.input-block-level{name: "image_url", placeholder: "http://"}
+          %button.btn Add image URL
+      
       %ul.thumbnails
         - Image.accessible_by(current_ability).each do |image|
           - next unless image.file?
