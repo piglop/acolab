@@ -6,8 +6,7 @@
       %label{for: "project_content"}= Project.human_attribute_name(:content)
       %span.help-block au format Markdown
     .controls
-      #wmd-button-bar
-      %textarea.wmd-input{name: "project[content]", rows: 20}= @project.content
+      %textarea{name: "project[content]", rows: 20}= @project.content
   
   .form-actions
     = f.submit t('.submit'), :class => 'btn btn-primary'
