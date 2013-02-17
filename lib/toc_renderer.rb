@@ -11,7 +11,11 @@ class TocRenderer < Redcarpet::Render::HTML_TOC
   end
   
   def header(text, level)
-    result = %Q{<li class="level-#{level}"><a href="#toc_#@header_count">#{h text}</a></li>}
+    if level == 1
+      result = %Q{<li><a href="#toc_#@header_count">#{h text}</a></li>}
+    else
+      result = nil
+    end
     @header_count += 1
     result
   end
