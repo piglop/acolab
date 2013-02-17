@@ -17,6 +17,7 @@
               %a{href: projects_path}= t("navigation.projects")
             %li{class: params[:controller] == "images" ? "active" : ""}
               %a{href: images_path}= t("navigation.images")
+              
           %ul.nav.pull-right
             - if current_user
               %li
