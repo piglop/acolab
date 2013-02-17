@@ -1,14 +1,8 @@
 $(document).ready ->
-  converter = new Markdown.Converter()
-  
   if $(".wmd-input").length > 0
+    converter = new Markdown.Converter()
     editor = new Markdown.Editor(converter)
     editor.run()
-  
-  $(".markdown").each ->
-    element = $(this)
-    converted = converter.makeHtml(element.html())
-    element.html(converted)
   
   $('#project-toc').affix
     offset: $('#project-toc').position()
