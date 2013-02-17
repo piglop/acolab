@@ -9,9 +9,8 @@
 .row-fluid
   .span3.bs-docs-sidebar
     != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
-    - # nav nav-list bs-docs-sidenav affix
   .span9
-    != Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(:with_toc_data => true)).render(@project.content)
+    != Redcarpet::Markdown.new(ProjectRenderer.new).render(@project.content)
 
 .row-fluid
   .form-actions

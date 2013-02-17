@@ -1,8 +1,11 @@
 class TocRenderer < Redcarpet::Render::HTML_TOC
   include ERB::Util
+
+  def self.sanitize_id(text)
+    text.parameterize
+  end
   
   def doc_header
-    @header_count = 0
     %Q{<div class="well"><ul class="nav nav-list"><li class="nav-header">#{I18n.t "toc"}</li>}
   end
   
@@ -12,11 +15,9 @@ class TocRenderer < Redcarpet::Render::HTML_TOC
   
   def header(text, level)
     if level == 1
-      result = %Q{<li><a href="#toc_#@header_count">#{h text}</a></li>}
+      %Q{<li><a href="##{text.parameterize}">#{h text}</a></li>}
     else
-      result = nil
+      nil
     end
-    @header_count += 1
-    result
   end
 end
