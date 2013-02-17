@@ -7,9 +7,7 @@
       %h3 Modal header
     .modal-body
       .well
-        .form-inline
-          %input.input-block-level{name: "image_url", placeholder: "http://"}
-          %button.btn Add image URL
+        %input.input-block-level{name: "image_url", placeholder: "http://", "data-url-input" => true}
       
       %ul.thumbnails
         - Image.accessible_by(current_ability).each do |image|
@@ -17,8 +15,8 @@
           %li.span3
             = image_tag image.file.url(:thumbnail), class: "img-polaroid", "data-full-image-url" => image.file.url(:full)
     .modal-footer
-      %a.btn{:href => "#"} Close
-      %a.btn.btn-primary{:href => "#"} Save changes
+      %a.btn{:href => "#", "data-close" => true} Fermer
+      %a.btn.btn-primary{:href => "#", "data-save" => true}= "Ajouter l'image"
   .control-group
     .control-label
       %label{for: "project_content"}= Project.human_attribute_name(:content)
