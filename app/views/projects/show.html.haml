@@ -1,4 +1,4 @@
-- content_for(:title, t(".title", name: @project.id))
+- content_for(:title, @project.name)
 - add_crumb content_for(:title)
 
 .row-fluid
@@ -6,11 +6,14 @@
     .hero-unit
       %h1= @project.name
       %p= @project.description
-    
-    .content
-      != Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(@project.content)
+.row-fluid
+  .span2
+    != Redcarpet::Markdown.new(Redcarpet::Render::HTML_TOC).render(@project.content)
+  .span10
+    != Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(:with_toc_data => true)).render(@project.content)
 
-    .form-actions
-      = link_to t('.back'), projects_path, :class => 'btn'
-      = link_to t('.edit'), edit_project_path(@project), :class => 'btn' if can? :update, @project
-      = link_to t('.destroy'), project_path(@project), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @project
+.row-fluid
+  .form-actions
+    = link_to t('.back'), projects_path, :class => 'btn'
+    = link_to t('.edit'), edit_project_path(@project), :class => 'btn' if can? :update, @project
+    = link_to t('.destroy'), project_path(@project), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @project
