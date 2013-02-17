@@ -7,9 +7,10 @@
       %h1= @project.name
       %p= @project.description
 .row-fluid
-  .span2
-    != Redcarpet::Markdown.new(Redcarpet::Render::HTML_TOC).render(@project.content)
-  .span10
+  .span3.bs-docs-sidebar
+    != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
+    - # nav nav-list bs-docs-sidenav affix
+  .span9
     != Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(:with_toc_data => true)).render(@project.content)
 
 .row-fluid
