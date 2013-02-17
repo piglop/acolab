@@ -11,9 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-migrate-1.1.1
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require markitup
-//= require markitup/sets/markdown/set
 //= require_tree .
