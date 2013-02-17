@@ -63,3 +63,4 @@ gem 'bootstrap_forms'
 gem 'crummy', '~> 1.7.0'
 gem 'pagedown-rails'
 gem 'redcarpet'
+gem "paperclip", "~> 3.0"

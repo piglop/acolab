@@ -3,10 +3,12 @@
 %table.table.table-striped
   %thead
     %tr
+      %th= Image.human_attribute_name(:file)
       %th= t('.actions')
   %tbody
     - @images.each do |image|
       %tr
+        %td= image_tag(image.file.url(:thumbnail)) if image.file?
         %td
           = link_to t('.show'), image_path(image), :class => 'btn btn-mini'
           = link_to t('.edit'), edit_image_path(image), :class => 'btn btn-mini' if can? :update, image

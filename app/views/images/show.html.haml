@@ -1,6 +1,7 @@
 - content_for(:title, t(".title", name: @image.id))
 - add_crumb content_for(:title)
 
+= image_tag(@image.file.url(:original))
 
 .form-actions
   = link_to t('.back'), images_path, :class => 'btn'
