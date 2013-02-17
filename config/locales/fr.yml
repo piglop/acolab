@@ -226,4 +226,5 @@ fr:
   app: "Hackerspace"
   navigation:
     home: Accueil
-  
+    log_in: Connexion
+    log_out: Déconnexion

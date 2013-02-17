@@ -17,6 +17,13 @@
               %a{href: projects_path}= t("navigation.projects")
             %li{class: params[:controller] == "images" ? "active" : ""}
               %a{href: images_path}= t("navigation.images")
+          %ul.nav.pull-right
+            - if current_user
+              %li
+                = link_to t("navigation.log_out"), destroy_user_session_path, :method => :delete
+            - else
+              %li
+                = link_to t("navigation.log_in"), new_user_session_path
 
       - render_crumbs do |crumbs|
         %ul.breadcrumb
