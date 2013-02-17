@@ -7,12 +7,16 @@
       %h1= @project.name
       %p= @project.description
 .row
-  .span3
-    #project-toc
-      != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
-  .span9
-    .project-content
-      != Redcarpet::Markdown.new(ProjectRenderer.new).render(@project.content)
+  - if @project.content.blank?
+    .span12
+      %p.alert.alert-notice= "Ce project n'a pas encore de contenu."
+  - else
+    .span3
+      #project-toc
+        != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
+    .span9
+      .project-content
+        != Redcarpet::Markdown.new(ProjectRenderer.new).render(@project.content)
 
 .row-fluid
   .form-actions
