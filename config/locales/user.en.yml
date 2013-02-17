@@ -17,6 +17,10 @@ en:
         last_sign_in_ip: Last sign in IP
         created_at: Creation date
         updated_at: Last update
+        remember_me: Remember me
+        password: Password
+        password_confirmation: Password confirmation
+        current_password: Current password
   
   users:
     index:

@@ -39,15 +39,37 @@ fr:
       signed_up_but_unconfirmed: Un message avec un lien de confirmation vous a été envoyé par mail. Veuillez suivre ce lien pour activer votre compte.
       update_needs_confirmation: Vous avez modifié votre compte avec succès, mais nous devons vérifier votre nouvelle adresse email. Veuillez consulter vos emails et cliquer sur le lien de confirmation pour finalizer votre nouvelle adresse.
       updated: Votre compte a été modifié avec succès.
+      new:
+        title: Création d'un compte
+        submit: Créer le compte
+      edit:
+        title: Modification du compte
+        submit: Modifier le compte
+        leave_blank_to_keep: "Laissez vide si vous ne voulez pas le changer"
+        current_password_required: Votre ancien mot de passe est nécessaire pour confirmer les changements
+        cancel_my_account:
+          title: Supprimer mon compte
+          intro: Vous voulez nous quitter ?
+          button: Supprimer mon compte
+          confirm: "Votre compte sera supprimé. Êtes vous sûr ?"
     sessions:
       signed_in: Connecté avec succès.
       signed_out: Déconnecté avec succès.
       new:
+        title: Connexion
         submit: Connexion
     unlocks:
       send_instructions: Vous allez recevoir un email sous quelques minutes contenant les instructions nécessaires au débloquage de votre compte.
       send_paranoid_instructions: Si votre compte existe, vous recevrez un email indiquant comment le déverrouiller sous quelques minutes.
       unlocked: Votre compte a été débloqué avec succès. Veuillez vous connecter.
+    shared:
+      links:
+        sign_in: "Connexion"
+        sign_up: "Créer un compte"
+        new_password: "Mot de passe oublié ?"
+        new_confirmation: "Mail de confirmation non reçu ?"
+        new_unlock: "Instructions de déblocage non reçues ?"
+        sign_in_with: "Connexion avec %{provider}"
   errors:
     messages:
       already_confirmed: a déjà été confirmé(e)
