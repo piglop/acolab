@@ -17,7 +17,7 @@
         != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
     .span9
       .project-content
-        != Redcarpet::Markdown.new(ProjectRenderer.new).render(@project.content)
+        != Redcarpet::Markdown.new(ProjectRenderer, autolink: true).render(@project.content)
 
 .row-fluid
   .form-actions
