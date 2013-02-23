@@ -6,13 +6,14 @@
       %p.alert.alert-notice= t(".empty")
     - else
       %ul.thumbnails.project-list
-        - @projects.each do |project|
+        - @projects.order("updated_at DESC").each do |project|
           %li.span4
             .project.well
               = link_to project, class: "title" do
                 %h2= project.name
               %p.description= project.description
               %p.author= project.author.name if project.author.try(:name).present?
+              %p.last-update= l(project.updated_at, :format => :short)
               %p.actions
                 = link_to t('.show'), project_path(project), :class => 'btn'
                 = link_to t('.edit'), edit_project_path(project), :class => 'btn' if can? :update, project
