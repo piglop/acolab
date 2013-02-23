@@ -7,9 +7,6 @@
       %h1= @project.name
       %p= @project.description
       %p.author= @project.author.name if @project.author.try(:name).present?
-      %p.last-update
-        Dernière mise à jour le
-        = l(@project.updated_at, :format => :long)
 .row
   - if @project.content.blank?
     .span12
@@ -22,7 +19,13 @@
       .project-content
         != Redcarpet::Markdown.new(ProjectRenderer, autolink: true).render(@project.content)
 
-.row-fluid
+.row
+  .span12
+    %p.last-update
+      Dernière mise à jour le
+      = l(@project.updated_at, :format => :long)
+
+.row
   .form-actions
     = link_to t('.back'), projects_path, :class => 'btn'
     = link_to t('.edit'), edit_project_path(@project), :class => 'btn' if can? :update, @project
