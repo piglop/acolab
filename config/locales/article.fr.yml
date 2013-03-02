@@ -13,9 +13,9 @@ fr:
     attributes:
       article:
         id: Identifiant
-        title: 
-        description: 
-        content: 
+        title: Titre
+        description: Description
+        content: Contenu
         created_at: Date de création
         updated_at: Dernière mise à jour
 
@@ -34,7 +34,7 @@ fr:
       title: "Modification de l'article %{name}"
 
     new:
-      title: Nouveau article
+      title: Nouvel article
       
     form:
       submit: Enregistrer l'article
