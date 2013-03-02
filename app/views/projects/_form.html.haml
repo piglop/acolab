@@ -1,6 +1,6 @@
 = bootstrap_form_for @project, :html => { :class => 'form-horizontal' } do |f|
   = f.text_field :name
-  = f.collection_select :contributor_ids, User.accessible_by(current_ability).contributable, :id, :display_name, {}, multiple: true
+  = f.collection_select :contributor_ids, User.accessible_by(current_ability).contributable(@project), :id, :display_name, {}, multiple: true
   = f.text_area :description, :rows => 5
   #image-selector.modal.hide
     .modal-header
