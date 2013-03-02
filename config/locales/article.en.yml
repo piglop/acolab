@@ -1,0 +1,46 @@
+en:
+  activerecord:
+    models:
+      article: Article
+    attributes:
+      article:
+        id: ID
+        title: 
+        description: 
+        content: 
+        created_at: Creation date
+        updated_at: Last update
+  
+  articles:
+    index:
+      title: List of articles
+      actions: Actions
+      show: Show
+      edit: &edit Edit
+      destroy: &destroy Delete
+      confirm: &confirm The article will by deleted. Are you sure?
+      new: Add an article
+      empty: The list is empty.
+
+    edit:
+      title: "Modification of article %{name}"
+
+    new:
+      title: New article
+
+    form:
+      submit: Save the article
+      cancel: Cancel
+      
+    show:
+      title: "Article %{name}"
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Back
+
+    created: The article was successfully created.
+    updated: The article was successfully updated.
+      
+  navigation:
+    articles: Articles

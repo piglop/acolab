@@ -1,4 +1,6 @@
 Hackerspace::Application.routes.draw do
+  resources :articles
+
   resources :images
   resources :projects do
     member do

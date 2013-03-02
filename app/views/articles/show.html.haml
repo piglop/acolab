@@ -1,0 +1,19 @@
+- content_for(:title, t(".title", name: @article.id))
+- add_crumb content_for(:title)
+
+.row
+  .span12
+    %dl.dl-horizontal
+      %dt= @article.class.human_attribute_name(:title)
+      %dd= @article.title
+    %dl.dl-horizontal
+      %dt= @article.class.human_attribute_name(:description)
+      %dd= @article.description
+    %dl.dl-horizontal
+      %dt= @article.class.human_attribute_name(:content)
+      %dd= @article.content
+
+    .form-actions
+      = link_to t('.back'), articles_path, :class => 'btn'
+      = link_to t('.edit'), edit_article_path(@article), :class => 'btn' if can? :update, @article
+      = link_to t('.destroy'), article_path(@article), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @article

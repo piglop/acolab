@@ -1,0 +1,54 @@
+fr:
+  grammar:
+    article: article
+    articles: articles
+    an_article: un article
+    the_article: l'article
+    of_article: de l'article
+    article_gender: m
+
+  activerecord:
+    models:
+      article: Article
+    attributes:
+      article:
+        id: Identifiant
+        title: 
+        description: 
+        content: 
+        created_at: Date de création
+        updated_at: Dernière mise à jour
+
+  articles:
+    index:
+      title: Liste des articles
+      actions: Actions
+      show: Voir
+      edit: &edit Modifier
+      destroy: &destroy Supprimer
+      confirm: &confirm L'article sera supprimé. Êtes vous sûr ?
+      new: Créer un article
+      empty: La liste est vide.
+
+    edit:
+      title: "Modification de l'article %{name}"
+
+    new:
+      title: Nouveau article
+      
+    form:
+      submit: Enregistrer l'article
+      cancel: Annuler
+
+    show:
+      title: "Article %{name}"
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Retour
+      
+    created: L'article a été créé.
+    updated: L'article a été modifié.
+    
+  navigation:
+    articles: Articles
