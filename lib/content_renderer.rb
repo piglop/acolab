@@ -1,4 +1,4 @@
-class ProjectRenderer < Redcarpet::Render::HTML
+class ContentRenderer < Redcarpet::Render::HTML
   include ERB::Util
   
   def initialize

@@ -9,10 +9,10 @@
 .row
   .span9
     - if @project.content.blank?
-      %p.alert.alert-notice= "Ce project n'a pas encore de contenu."
+      %p.alert.alert-notice= "Ce projet n'a pas encore de contenu."
     - else
       .project-content
-        != Redcarpet::Markdown.new(ProjectRenderer, autolink: true).render(@project.content) if @project.content
+        != Redcarpet::Markdown.new(ContentRenderer, autolink: true).render(@project.content) if @project.content
   .span3
     #project-sidebar
       - toc = Redcarpet::Markdown.new(TocRenderer).render(@project.content).html_safe if @project.content

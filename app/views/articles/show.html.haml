@@ -1,19 +1,31 @@
-- content_for(:title, t(".title", name: @article.id))
+- content_for(:title, @article.title)
 - add_crumb content_for(:title)
 
 .row
   .span12
-    %dl.dl-horizontal
-      %dt= @article.class.human_attribute_name(:title)
-      %dd= @article.title
-    %dl.dl-horizontal
-      %dt= @article.class.human_attribute_name(:description)
-      %dd= @article.description
-    %dl.dl-horizontal
-      %dt= @article.class.human_attribute_name(:content)
-      %dd= @article.content
-
-    .form-actions
-      = link_to t('.back'), articles_path, :class => 'btn'
-      = link_to t('.edit'), edit_article_path(@article), :class => 'btn' if can? :update, @article
-      = link_to t('.destroy'), article_path(@article), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @article
+    .hero-unit
+      %h1= @article.title
+      %p= @article.description
+.row
+  .span9
+    - if @article.content.blank?
+      %p.alert.alert-notice= "Cet article n'a pas encore de contenu."
+    - else
+      .article-content
+        != Redcarpet::Markdown.new(ContentRenderer, autolink: true).render(@article.content) if @article.content
+  .span3
+    #article-sidebar
+      - toc = Redcarpet::Markdown.new(TocRenderer).render(@article.content).html_safe if @article.content
+      - if toc.present?
+        #article-toc
+          .well
+            %ul.nav.nav-list
+              %li.nav-header= I18n.t "toc"
+              = toc
+      .well
+        %dl
+          %dt Dernière mise à jour
+          %dd= l(@article.updated_at, :format => :long)
+        = link_to t('.history'), history_article_path(@article), :class => 'btn btn-block' if can? :history, @article
+        = link_to t('.edit'), edit_article_path(@article), :class => 'btn btn-block' if can? :update, @article
+        = link_to t('.destroy'), article_path(@article), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @article
