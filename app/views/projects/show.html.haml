@@ -6,24 +6,29 @@
     .hero-unit
       %h1= @project.name
       %p= @project.description
-      %p.author= @project.author.name if @project.author.try(:name).present?
 .row
   - if @project.content.blank?
     .span12
       %p.alert.alert-notice= "Ce project n'a pas encore de contenu."
   - else
     .span3
-      #project-toc
-        != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
+      #project-sidebar
+        #project-toc
+          != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
+        .well
+          %dl
+            - if @project.author.try(:name).present?
+              %dt= Project.human_attribute_name(:author)
+              %dd= @project.author.name if @project.author.try(:name).present?
+            - contributors = @project.contributors.select { |contributor| contributor.name.present? }
+            - if contributors.any?
+              %dt= Project.human_attribute_name(:contributors)
+              %dd= contributors.map(&:name).join(", ")
+            %dt Dernière mise à jour
+            %dd= l(@project.updated_at, :format => :long)
     .span9
       .project-content
         != Redcarpet::Markdown.new(ProjectRenderer, autolink: true).render(@project.content)
-
-.row
-  .span12
-    %p.last-update
-      Dernière mise à jour le
-      = l(@project.updated_at, :format => :long)
 
 .row
   .form-actions

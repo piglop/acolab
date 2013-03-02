@@ -49,8 +49,8 @@ $(document).ready ->
     
     editor.run()
   
-  $('#project-toc').affix
-    offset: $('#project-toc').position()
+  $('#project-sidebar').affix
+    offset: $('#project-sidebar').position()
 
   updateProjectThumbnails = ->
     projectThumbnails = $(".project-list .project")
