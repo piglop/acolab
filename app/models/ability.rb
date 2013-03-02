@@ -10,6 +10,9 @@ class Ability
       can :read,    Project
       can :history, Project
       
+      can :read,    Article
+      can :history, Article
+      
       if user
         can :create,  Project, author_id: user.id
         can :update,  Project, author_id: user.id
