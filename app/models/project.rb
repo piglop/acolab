@@ -6,4 +6,7 @@ class Project < ActiveRecord::Base
   has_many :contributors, through: :contributor_assignations, source: :user
   
   has_paper_trail
+  
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

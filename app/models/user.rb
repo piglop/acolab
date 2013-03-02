@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   
   has_many :projects, foreign_key: "author_id", inverse_of: :author
   
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   def self.contributable(project)
     scoped.where("id != ?", project.author_id)
   end

@@ -77,3 +77,4 @@ gem "paperclip", "~> 3.0"
 gem 'paper_trail', '~> 2'
 gem 'select2-rails'
 gem 'will_paginate-bootstrap', :git => "git://github.com/piglop/will_paginate-bootstrap.git", :branch => "require_will_paginate"
+gem "friendly_id", "~> 4.0.9"
