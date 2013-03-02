@@ -12,6 +12,7 @@ class Ability
       if user
         can :create,  Project, author_id: user.id
         can :update,  Project, author_id: user.id
+        can :update,  Project, contributor_assignations: {user_id: user.id}
         can :destroy, Project, author_id: user.id
 
         can :read,    Image, owner_id: user.id
