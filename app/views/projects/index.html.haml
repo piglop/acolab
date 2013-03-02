@@ -13,7 +13,8 @@
                 %h2= project.name
               %p.description= project.description
               %p.author
-                = link_to_user(project.author).try(:+, ",")
+                - if project.author and !project.author.anonymous?
+                  = link_to_user(project.author) + ","
                 = l(project.updated_at, :format => :short)
               %p.actions
                 = link_to t('.show'), project_path(project), :class => 'btn'
