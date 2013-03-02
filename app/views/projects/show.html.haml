@@ -7,35 +7,27 @@
       %h1= @project.name
       %p= @project.description
 .row
-  - if @project.content.blank?
-    .span12
+  .span9
+    - if @project.content.blank?
       %p.alert.alert-notice= "Ce project n'a pas encore de contenu."
-  - else
-    .span3
-      #project-sidebar
-        #project-toc
-          != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
-        .well
-          %dl
-            - if @project.author.try(:name).present?
-              %dt= Project.human_attribute_name(:author)
-              %dd= @project.author.name if @project.author.try(:name).present?
-            - contributors = @project.contributors.select { |contributor| contributor.name.present? }
-            - if contributors.any?
-              %dt= Project.human_attribute_name(:contributors)
-              %dd= contributors.map(&:name).join(", ")
-            %dt Dernière mise à jour
-            %dd= l(@project.updated_at, :format => :long)
-          = link_to t('.history'), history_project_path(@project), :class => 'btn' if can? :history, @project
-          = link_to t('.edit'), edit_project_path(@project), :class => 'btn' if can? :update, @project
-          = link_to t('.destroy'), project_path(@project), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @project
-    .span9
+    - else
       .project-content
         != Redcarpet::Markdown.new(ProjectRenderer, autolink: true).render(@project.content)
-
-.row
-  .form-actions
-    = link_to t('.back'), projects_path, :class => 'btn'
-    = link_to t('.history'), history_project_path(@project), :class => 'btn' if can? :history, @project
-    = link_to t('.edit'), edit_project_path(@project), :class => 'btn' if can? :update, @project
-    = link_to t('.destroy'), project_path(@project), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @project
+  .span3
+    #project-sidebar
+      #project-toc
+        != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
+      .well
+        %dl
+          - if @project.author.try(:name).present?
+            %dt= Project.human_attribute_name(:author)
+            %dd= @project.author.name if @project.author.try(:name).present?
+          - contributors = @project.contributors.select { |contributor| contributor.name.present? }
+          - if contributors.any?
+            %dt= Project.human_attribute_name(:contributors)
+            %dd= contributors.map(&:name).join(", ")
+          %dt Dernière mise à jour
+          %dd= l(@project.updated_at, :format => :long)
+        = link_to t('.history'), history_project_path(@project), :class => 'btn btn-block' if can? :history, @project
+        = link_to t('.edit'), edit_project_path(@project), :class => 'btn btn-block' if can? :update, @project
+        = link_to t('.destroy'), project_path(@project), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @project
