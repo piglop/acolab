@@ -19,7 +19,8 @@ class Ability
         can :update,  Project, contributor_assignations: {user_id: user.id}
         can :destroy, Project, author_id: user.id
 
-        can :manage,  Article
+        can :create,  Article
+        can :update,  Article
         
         can :read,    Image, owner_id: user.id
         can :create,  Image, owner_id: user.id
