@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git
-  revision: 3f89a74b8f2291689588b404d0ec4123cf688dee
+  revision: c85405d7c28815c058fcc9a18a8f7498e6df7bfd
   branch: rails_base_app
   specs:
     rails-cancan-bootstrap-scaffold (0.0.1)
