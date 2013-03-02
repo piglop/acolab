@@ -12,10 +12,10 @@
       %p.alert.alert-notice= "Ce project n'a pas encore de contenu."
     - else
       .project-content
-        != Redcarpet::Markdown.new(ProjectRenderer, autolink: true).render(@project.content)
+        != Redcarpet::Markdown.new(ProjectRenderer, autolink: true).render(@project.content) if @project.content
   .span3
     #project-sidebar
-      - toc = Redcarpet::Markdown.new(TocRenderer).render(@project.content).html_safe
+      - toc = Redcarpet::Markdown.new(TocRenderer).render(@project.content).html_safe if @project.content
       - if toc.present?
         #project-toc
           .well
