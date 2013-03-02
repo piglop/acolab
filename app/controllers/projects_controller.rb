@@ -39,6 +39,10 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    if params[:version].present?
+      version = @project.versions.where("id > ?", params[:version]).first
+      @project = version.reify if version
+    end
   end
 
   # POST /projects
