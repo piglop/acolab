@@ -46,6 +46,7 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
+      history: Historique
       
     created: L'article a été créé.
     updated: L'article a été modifié.

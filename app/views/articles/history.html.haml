@@ -1,0 +1,19 @@
+- content_for(:title, "Historique de l'article #{@article.title}")
+- add_crumb @article.title, @article
+- add_crumb "Historique"
+
+- versions = @article.versions.order('created_at DESC').paginate(page: params[:page])
+
+.row
+  .span12
+    %table.table
+      - versions.each do |version|
+        %tr
+          %td= l(version.created_at)
+          %td= t(version.event, scope: "version")
+          %td= link_to_user User.where(id: version.originator).first
+          %td= link_to "Voir", article_path(@article, version: version.id), class: "btn btn-primary"
+          %td= link_to "Modifier", edit_article_path(@article, version: version.id), class: "btn", title: "Modifier l'article actuel en partant de cette version"
+    
+    = will_paginate(versions)
+    
