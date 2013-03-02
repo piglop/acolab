@@ -18,6 +18,8 @@ class Ability
         can :create,  Image, owner_id: user.id
         can :update,  Image, owner_id: user.id
         can :destroy, Image, owner_id: user.id
+
+        can :read,    User
       end
     end
   end
