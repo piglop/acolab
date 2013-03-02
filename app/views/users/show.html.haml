@@ -6,6 +6,11 @@
     %dl.dl-horizontal
       %dt= @user.class.human_attribute_name(:name)
       %dd= @user.name
+      %dt= "Projets"
+      %dd
+        %ul.unstyled
+          - @user.projects.each do |project|
+            %li= link_to project.name, project
     - if current_user.has_role? :admin
       %dl.dl-horizontal
         %dt= @user.class.human_attribute_name(:encrypted_password)
