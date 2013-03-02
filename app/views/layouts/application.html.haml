@@ -2,6 +2,8 @@
 %html{lang: I18n.locale}
   %head
     %title= content_for?(:title) ? "#{content_for(:title)} - #{t("app")}".html_safe : t("app")
+    - if (description = content_for(:description)).present?
+      %meta{name: "description", content: description}/
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}/
     = stylesheet_link_tag    "application", :media => "all"
     = csrf_meta_tags
