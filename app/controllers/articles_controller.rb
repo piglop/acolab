@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource
+  load_version
 
   before_filter do
     add_crumb t("navigation.articles"), articles_path

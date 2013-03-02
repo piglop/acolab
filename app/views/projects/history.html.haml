@@ -2,18 +2,20 @@
 - add_crumb @project.name, @project
 - add_crumb "Historique"
 
-- versions = @project.versions.order('created_at DESC').paginate(page: params[:page])
+- require 'will_paginate/array'
+- versions = @project.versions.reverse.paginate(page: params[:page], per_page: 100)
 
 .row
   .span12
     %table.table
-      - versions.each do |version|
+      - versions.each_with_index do |version, i|
+        - next_version = versions[i+1]
         %tr
           %td= l(version.created_at)
           %td= t(version.event, scope: "version")
-          %td= link_to_user User.where(id: version.originator).first
+          %td= link_to_user User.where(id: version.terminator).first
           %td= link_to "Voir", project_path(@project, version: version.id), class: "btn btn-primary"
           %td= link_to "Modifier", edit_project_path(@project, version: version.id), class: "btn", title: "Modifier le projet actuel en partant de cette version"
-    
-    = will_paginate(versions)
-    
+  
+  = will_paginate versions
+  
