@@ -6,11 +6,11 @@ class TocRenderer < Redcarpet::Render::HTML_TOC
   end
   
   def doc_header
-    %Q{<div class="well"><ul class="nav nav-list"><li class="nav-header">#{I18n.t "toc"}</li>}
+    ""
   end
   
   def doc_footer
-    %Q{</ul></div>}
+    ""
   end
   
   def header(text, level)

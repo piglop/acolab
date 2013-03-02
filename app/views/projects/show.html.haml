@@ -15,8 +15,13 @@
         != Redcarpet::Markdown.new(ProjectRenderer, autolink: true).render(@project.content)
   .span3
     #project-sidebar
-      #project-toc
-        != Redcarpet::Markdown.new(TocRenderer).render(@project.content)
+      - toc = Redcarpet::Markdown.new(TocRenderer).render(@project.content).html_safe
+      - if toc.present?
+        #project-toc
+          .well
+            %ul.nav.nav-list
+              %li.nav-header= I18n.t "toc"
+              = toc
       .well
         %dl
           - if @project.author.try(:name).present?
