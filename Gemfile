@@ -74,3 +74,4 @@ gem 'pagedown-rails'
 gem 'redcarpet'
 gem "paperclip", "~> 3.0"
 gem 'paper_trail', '~> 2'
+gem 'select2-rails'

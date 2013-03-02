@@ -64,4 +64,6 @@ $(document).ready ->
       items.css(height: max)
   updateProjectThumbnails()
   $(window).on "resize", updateProjectThumbnails
-  
+
+  $("#project_contributor_ids").select2
+    width: "100%"
