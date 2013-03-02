@@ -1,0 +1,18 @@
+- content_for(:title, "Historique du projet #{@project.name}")
+- add_crumb @project.name, @project
+- add_crumb "Historique"
+
+- versions = @project.versions.order('created_at DESC').paginate(page: params[:page])
+
+.row
+  .span12
+    %table.table
+      - versions.each do |version|
+        %tr
+          %td= l(version.created_at)
+          %td= t(version.event, scope: "version")
+          %td= User.where(id: version.originator).first.try(:name)
+          %td= link_to "Voir", project_path(@project, version: version.id), class: "btn btn-primary"
+    
+    = will_paginate(versions)
+    

@@ -42,6 +42,7 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
+      history: "Historique"
       
     created: Le projet a été créé.
     updated: Le projet a été modifié.

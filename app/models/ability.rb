@@ -8,6 +8,7 @@ class Ability
       can :manage, :all
     else
       can :read,    Project
+      can :history, Project
       
       if user
         can :create,  Project, author_id: user.id

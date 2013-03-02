@@ -17,6 +17,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    if params[:version].present?
+      version = @project.versions.where("id > ?", params[:version]).first
+      @project = version.reify if version
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }

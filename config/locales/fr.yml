@@ -235,3 +235,8 @@ fr:
     errors:
       header: Des erreurs ont bloqué l'enregistrement
         
+  version:
+    update: Modification
+    create: Création
+    destroy: Suppression
+    

@@ -19,6 +19,14 @@ GIT
       bootstrap_forms
       httparty
 
+GIT
+  remote: git://github.com/piglop/will_paginate-bootstrap.git
+  revision: b306e4435594ac234aa90a29148bcfd530b4b5f1
+  branch: require_will_paginate
+  specs:
+    will_paginate-bootstrap (0.2.2)
+      will_paginate (>= 3.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -198,6 +206,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
@@ -230,3 +239,4 @@ DEPENDENCIES
   thin-rails
   turbo-sprockets-rails3
   uglifier (>= 1.0.3)
+  will_paginate-bootstrap!

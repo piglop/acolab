@@ -26,6 +26,7 @@
               %dd= contributors.map(&:name).join(", ")
             %dt Dernière mise à jour
             %dd= l(@project.updated_at, :format => :long)
+          = link_to t('.history'), history_project_path(@project), :class => 'btn' if can? :history, @project
           = link_to t('.edit'), edit_project_path(@project), :class => 'btn' if can? :update, @project
           = link_to t('.destroy'), project_path(@project), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @project
     .span9
@@ -35,5 +36,6 @@
 .row
   .form-actions
     = link_to t('.back'), projects_path, :class => 'btn'
+    = link_to t('.history'), history_project_path(@project), :class => 'btn' if can? :history, @project
     = link_to t('.edit'), edit_project_path(@project), :class => 'btn' if can? :update, @project
     = link_to t('.destroy'), project_path(@project), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @project

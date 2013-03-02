@@ -1,6 +1,10 @@
 Hackerspace::Application.routes.draw do
   resources :images
-  resources :projects
+  resources :projects do
+    member do
+      get :history
+    end
+  end
   
   resources :users
 
