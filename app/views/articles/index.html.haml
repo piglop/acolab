@@ -4,7 +4,7 @@
       %p.alert.alert-notice= t(".empty")
     - else
       %ul.thumbnails.article-list
-        - @articles.order("updated_at DESC").each do |article|
+        - @articles.order("position, title").each do |article|
           %li.span4
             .article.well
               = link_to article, class: "title" do

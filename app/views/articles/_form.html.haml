@@ -1,5 +1,6 @@
 = bootstrap_form_for @article, :html => { :class => 'form-horizontal' } do |f|
   = f.text_field :title
+  = f.number_field :position, help_inline: "Les articles sont classés par position puis par titre"
   = f.text_area :description, :rows => 5
   = render "shared/markdown_content_form", f: f
   
