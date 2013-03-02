@@ -24,9 +24,8 @@
               = toc
       .well
         %dl
-          - if @project.author.try(:name).present?
-            %dt= Project.human_attribute_name(:author)
-            %dd= link_to @project.author.name, @project.author
+          %dt= Project.human_attribute_name(:author)
+          %dd= link_to_user @project.author
           - contributors = @project.contributors.select { |contributor| contributor.name.present? }
           - if contributors.any?
             %dt= Project.human_attribute_name(:contributors)

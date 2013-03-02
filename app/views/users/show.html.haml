@@ -1,16 +1,14 @@
-- content_for(:title, t(".title", name: @user.id))
+- content_for(:title, t(".title", name: @user.display_name))
 - add_crumb content_for(:title)
 
 .row
   .span12
     %dl.dl-horizontal
       %dt= @user.class.human_attribute_name(:name)
-      %dd= @user.name
+      %dd= @user.display_name
       %dt= "Projets"
-      %dd
-        %ul.unstyled
-          - @user.projects.each do |project|
-            %li= link_to project.name, project
+      - @user.projects.each do |project|
+        %dd= link_to project.name, project
     - if current_user.has_role? :admin
       %dl.dl-horizontal
         %dt= @user.class.human_attribute_name(:encrypted_password)

@@ -56,3 +56,6 @@ fr:
     
   navigation:
     users: Participants
+
+  anonymous: "Anonyme %{id}"
+  

@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   end
   
   def display_name
-    name.present? ? name : email
+    anonymous? ? I18n.t("anonymous", id: id) : name
+  end
+  
+  def anonymous?
+    name.blank?
   end
 end

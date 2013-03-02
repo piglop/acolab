@@ -11,7 +11,7 @@
         %tr
           %td= l(version.created_at)
           %td= t(version.event, scope: "version")
-          %td= User.where(id: version.originator).first.try(:name)
+          %td= link_to_user User.where(id: version.originator).first
           %td= link_to "Voir", project_path(@project, version: version.id), class: "btn btn-primary"
           %td= link_to "Modifier", edit_project_path(@project, version: version.id), class: "btn", title: "Modifier le projet actuel en partant de cette version"
     

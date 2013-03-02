@@ -13,7 +13,7 @@
                 %h2= project.name
               %p.description= project.description
               %p.author
-                = project.author.name + "," if project.author.try(:name).present?
+                = link_to_user(project.author).try(:+, ",")
                 = l(project.updated_at, :format => :short)
               %p.actions
                 = link_to t('.show'), project_path(project), :class => 'btn'
