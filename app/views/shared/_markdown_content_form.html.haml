@@ -1,0 +1,24 @@
+#image-selector.modal.hide
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Ajouter une image
+  .modal-body
+    .well
+      %input.input-block-level{name: "image_url", placeholder: "http://", "data-url-input" => true}
+    
+    %ul.thumbnails
+      - Image.accessible_by(current_ability).each do |image|
+        - next unless image.file?
+        %li.span3
+          = image_tag image.file.url(:thumbnail), class: "img-polaroid", "data-full-image-url" => image.file.url(:full)
+  .modal-footer
+    %a.btn{:href => "#", "data-close" => true} Fermer
+    %a.btn.btn-primary{:href => "#", "data-save" => true}= "Ajouter l'image"
+.control-group
+  .control-label
+    = f.object_name
+    %label{for: form_tag_id(f.object_name, :content)}= f.object.class.human_attribute_name(:content)
+    %span.help-block au format Markdown
+  .controls
+    #wmd-button-bar
+    %textarea.wmd-input{name: form_tag_name(f.object_name, :content), rows: 20}= f.object.content

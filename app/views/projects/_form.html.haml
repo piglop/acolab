@@ -2,29 +2,7 @@
   = f.text_field :name
   = f.collection_select :contributor_ids, User.accessible_by(current_ability).contributable(@project), :id, :display_name, {}, multiple: true
   = f.text_area :description, :rows => 5
-  #image-selector.modal.hide
-    .modal-header
-      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
-      %h3 Ajouter une image
-    .modal-body
-      .well
-        %input.input-block-level{name: "image_url", placeholder: "http://", "data-url-input" => true}
-      
-      %ul.thumbnails
-        - Image.accessible_by(current_ability).each do |image|
-          - next unless image.file?
-          %li.span3
-            = image_tag image.file.url(:thumbnail), class: "img-polaroid", "data-full-image-url" => image.file.url(:full)
-    .modal-footer
-      %a.btn{:href => "#", "data-close" => true} Fermer
-      %a.btn.btn-primary{:href => "#", "data-save" => true}= "Ajouter l'image"
-  .control-group
-    .control-label
-      %label{for: "project_content"}= Project.human_attribute_name(:content)
-      %span.help-block au format Markdown
-    .controls
-      #wmd-button-bar
-      %textarea.wmd-input{name: "project[content]", rows: 20}= @project.content
+  = render "shared/markdown_content_form", f: f
   
   .form-actions
     = f.submit t('.submit'), :class => 'btn btn-primary'
