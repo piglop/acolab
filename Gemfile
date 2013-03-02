@@ -50,6 +50,7 @@ gem 'jquery-rails'
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "spork-rails"
+  gem 'letters'
 end
 
 gem 'haml-rails'
