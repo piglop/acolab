@@ -21,11 +21,11 @@
         %dl
           - if @project.author.try(:name).present?
             %dt= Project.human_attribute_name(:author)
-            %dd= @project.author.name if @project.author.try(:name).present?
+            %dd= link_to @project.author.name, @project.author
           - contributors = @project.contributors.select { |contributor| contributor.name.present? }
           - if contributors.any?
             %dt= Project.human_attribute_name(:contributors)
-            %dd= contributors.map(&:name).join(", ")
+            %dd= contributors.map { |contributor| link_to(h(contributor.name), contributor) }.join(", ").html_safe
           %dt Dernière mise à jour
           %dd= l(@project.updated_at, :format => :long)
         = link_to t('.history'), history_project_path(@project), :class => 'btn btn-block' if can? :history, @project
