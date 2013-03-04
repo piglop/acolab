@@ -13,6 +13,8 @@ class Ability
       can :read,    Article
       can :history, Article
       
+      can :read,    User
+      
       if user
         can :create,  Project, author_id: user.id
         can :update,  Project, author_id: user.id
@@ -26,8 +28,6 @@ class Ability
         can :create,  Image, owner_id: user.id
         can :update,  Image, owner_id: user.id
         can :destroy, Image, owner_id: user.id
-
-        can :read,    User
       end
     end
   end
