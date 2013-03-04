@@ -66,5 +66,14 @@ module Hackerspace
     config.assets.version = '1.0'
     
     config.sass.preferred_syntax = :sass
+    
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "localhost",
+      :port                 => 25,
+      :domain               => 'hackerspace.ouvrages',
+      :authentication       => 'none',
+      :enable_starttls_auto => true  }
+    
   end
 end
