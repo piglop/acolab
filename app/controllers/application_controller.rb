@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     add_crumb t("navigation.home"), root_path
   end
   
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, flash: {error: exception.message}
+  end
+  
   protected
   
   def self.load_version
