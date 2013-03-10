@@ -7,6 +7,6 @@ class ContentRenderer < Redcarpet::Render::HTML
   
   def header(text, level)
     level += 1
-    %Q{<h#{level} id="#{text.parameterize}">#{h text}</h#{level}>}
+    %Q{<h#{level} id="#{text.parameterize}">#{text}</h#{level}>}
   end
 end
