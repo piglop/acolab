@@ -53,3 +53,8 @@ fr:
     
   navigation:
     workshops: Ateliers
+
+  workshop_state:
+    considered: Envisagé
+    working: En fonctionnement
+    

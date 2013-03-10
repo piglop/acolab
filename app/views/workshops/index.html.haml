@@ -3,19 +3,21 @@
     - if @workshops.blank?
       %p.alert.alert-notice= t(".empty")
     - else
-      %ul.thumbnails.workshop-list
-        - @workshops.order("position, title").each do |workshop|
-          %li.span4
-            .workshop.well
-              = link_to workshop, class: "title" do
-                %h2= workshop.title
-              %p.description= workshop.description
-              %p.last-update
-                = l(workshop.updated_at, :format => :short)
-              %p.actions
-                = link_to t('.show'), workshop_path(workshop), :class => 'btn'
-                = link_to t('.edit'), edit_workshop_path(workshop), :class => 'btn' if can? :update, workshop
-                = link_to t('.destroy'), workshop_path(workshop), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, workshop
+      - @workshops.order("name").group_by(&:state).each do |state, workshops|
+        %h2= t(state, scope: "workshop_state")
+        %ul.thumbnails.workshop-list
+          - workshops.each do |workshop|
+            %li.span4
+              .workshop.well
+                = link_to workshop, class: "name" do
+                  %h2= workshop.name
+                %p.description= workshop.description
+                %p.last-update
+                  = l(workshop.updated_at, :format => :short)
+                %p.actions
+                  = link_to t('.show'), workshop_path(workshop), :class => 'btn'
+                  = link_to t('.edit'), edit_workshop_path(workshop), :class => 'btn' if can? :update, workshop
+                  = link_to t('.destroy'), workshop_path(workshop), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, workshop
 .row
   .span12
     = link_to t('.new'), new_workshop_path, :class => 'btn btn-primary' if can? :create, ::Workshop
