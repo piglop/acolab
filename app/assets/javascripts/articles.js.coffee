@@ -1,8 +1,8 @@
 $(document).ready ->
   updateArticleThumbnails = ->
-    projectThumbnails = $(".article-list .article")
+    articleThumbnails = $(".article-list .article")
     $.each ["title", "description", "last-update", "actions"], (part) ->
-      items = projectThumbnails.find(".#{this}")
+      items = articleThumbnails.find(".#{this}")
       items.css(display: 'block', height: 'auto')
       max = 0
       $.each items, ->
