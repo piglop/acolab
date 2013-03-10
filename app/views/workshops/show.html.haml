@@ -25,6 +25,8 @@
               = toc
       .well
         %dl
+          %dt= Workshop.human_attribute_name(:state)
+          %dd= t(@workshop.state, scope: "workshop_state")
           %dt Dernière mise à jour
           %dd= l(@workshop.updated_at, :format => :long)
         = link_to t('.history'), history_workshop_path(@workshop), :class => 'btn btn-block' if can? :history, @workshop
