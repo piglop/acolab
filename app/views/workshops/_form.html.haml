@@ -1,0 +1,9 @@
+= bootstrap_form_for @workshop, :html => { :class => 'form-horizontal' } do |f|
+  = f.text_field :name
+  = f.text_area :description
+  = f.text_field :state
+  = f.text_area :content
+  
+  .form-actions
+    = f.submit t('.submit'), :class => 'btn btn-primary'
+    = link_to t('.cancel'), workshops_path, :class => 'btn'

@@ -1,0 +1,28 @@
+- content_for :title, t('.title')
+
+.row
+  .span12
+    - if @workshops.blank?
+      %p.alert.alert-notice= t(".empty")
+    - else
+      %table.table.table-striped
+        %thead
+          %tr
+            %th= Workshop.human_attribute_name(:name)
+            %th= Workshop.human_attribute_name(:description)
+            %th= Workshop.human_attribute_name(:state)
+            %th= Workshop.human_attribute_name(:content)
+            %th= t('.actions')
+        %tbody
+          - @workshops.each do |workshop|
+            %tr
+              %td= workshop.name
+              %td= workshop.description
+              %td= workshop.state
+              %td= workshop.content
+              %td
+                = link_to t('.show'), workshop_path(workshop), :class => 'btn btn-mini'
+                = link_to t('.edit'), edit_workshop_path(workshop), :class => 'btn btn-mini' if can? :update, workshop
+                = link_to t('.destroy'), workshop_path(workshop), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-mini btn-danger' if can? :destroy, workshop
+
+    = link_to t('.new'), new_workshop_path, :class => 'btn btn-primary' if can? :create, ::Workshop

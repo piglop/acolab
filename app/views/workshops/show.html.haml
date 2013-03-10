@@ -1,0 +1,22 @@
+- content_for(:title, t(".title", name: @workshop.id))
+- add_crumb content_for(:title)
+
+.row
+  .span12
+    %dl.dl-horizontal
+      %dt= @workshop.class.human_attribute_name(:name)
+      %dd= @workshop.name
+    %dl.dl-horizontal
+      %dt= @workshop.class.human_attribute_name(:description)
+      %dd= @workshop.description
+    %dl.dl-horizontal
+      %dt= @workshop.class.human_attribute_name(:state)
+      %dd= @workshop.state
+    %dl.dl-horizontal
+      %dt= @workshop.class.human_attribute_name(:content)
+      %dd= @workshop.content
+
+    .form-actions
+      = link_to t('.back'), workshops_path, :class => 'btn'
+      = link_to t('.edit'), edit_workshop_path(@workshop), :class => 'btn' if can? :update, @workshop
+      = link_to t('.destroy'), workshop_path(@workshop), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @workshop

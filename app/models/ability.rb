@@ -13,6 +13,9 @@ class Ability
       can :read,    Article
       can :history, Article
       
+      can :read,    Workshop
+      can :history, Workshop
+      
       can :read,    User
       
       if user
@@ -23,6 +26,9 @@ class Ability
 
         can :create,  Article
         can :update,  Article
+        
+        can :create,  Workshop
+        can :update,  Workshop
         
         can :read,    Image, owner_id: user.id
         can :create,  Image, owner_id: user.id

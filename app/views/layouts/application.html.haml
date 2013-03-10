@@ -21,6 +21,9 @@
             - if can? :read, Article
               %li{class: params[:controller] == "articles" ? "active" : ""}
                 %a{href: articles_path}= t("navigation.articles")
+            - if can? :read, Workshop
+              %li{class: params[:controller] == "workshops" ? "active" : ""}
+                %a{href: workshops_path}= t("navigation.workshops")
             - if can? :read, Image
               %li{class: params[:controller] == "images" ? "active" : ""}
                 %a{href: images_path}= t("navigation.images")

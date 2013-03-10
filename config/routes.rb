@@ -1,4 +1,6 @@
 Hackerspace::Application.routes.draw do
+  resources :workshops
+
   resources :articles do
     member do
       get :history

@@ -1,0 +1,47 @@
+en:
+  activerecord:
+    models:
+      workshop: Workshop
+    attributes:
+      workshop:
+        id: ID
+        name: 
+        description: 
+        state: 
+        content: 
+        created_at: Creation date
+        updated_at: Last update
+  
+  workshops:
+    index:
+      title: List of workshops
+      actions: Actions
+      show: Show
+      edit: &edit Edit
+      destroy: &destroy Delete
+      confirm: &confirm The workshop will by deleted. Are you sure?
+      new: Add a workshop
+      empty: The list is empty.
+
+    edit:
+      title: "Modification of workshop %{name}"
+
+    new:
+      title: New workshop
+
+    form:
+      submit: Save the workshop
+      cancel: Cancel
+      
+    show:
+      title: "Workshop %{name}"
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Back
+
+    created: The workshop was successfully created.
+    updated: The workshop was successfully updated.
+      
+  navigation:
+    workshops: Workshops
