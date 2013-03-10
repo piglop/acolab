@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302130705) do
+ActiveRecord::Schema.define(:version => 20130310155949) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -110,5 +110,14 @@ ActiveRecord::Schema.define(:version => 20130302130705) do
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
+
+  create_table "workshops", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "state"
+    t.text     "content"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end
