@@ -1,5 +1,9 @@
 Hackerspace::Application.routes.draw do
-  resources :workshops
+  resources :workshops do
+    member do
+      get :history
+    end
+  end
 
   resources :articles do
     member do

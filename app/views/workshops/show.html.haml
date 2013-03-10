@@ -1,22 +1,32 @@
-- content_for(:title, t(".title", name: @workshop.id))
+- content_for(:title, @workshop.name)
+- content_for(:description, @workshop.description)
 - add_crumb content_for(:title)
 
 .row
   .span12
-    %dl.dl-horizontal
-      %dt= @workshop.class.human_attribute_name(:name)
-      %dd= @workshop.name
-    %dl.dl-horizontal
-      %dt= @workshop.class.human_attribute_name(:description)
-      %dd= @workshop.description
-    %dl.dl-horizontal
-      %dt= @workshop.class.human_attribute_name(:state)
-      %dd= @workshop.state
-    %dl.dl-horizontal
-      %dt= @workshop.class.human_attribute_name(:content)
-      %dd= @workshop.content
-
-    .form-actions
-      = link_to t('.back'), workshops_path, :class => 'btn'
-      = link_to t('.edit'), edit_workshop_path(@workshop), :class => 'btn' if can? :update, @workshop
-      = link_to t('.destroy'), workshop_path(@workshop), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @workshop
+    .hero-unit
+      %h1= @workshop.name
+      %p= @workshop.description
+.row
+  .span9
+    - if @workshop.content.blank?
+      %p.alert.alert-notice= "Cet atelier n'a pas encore de contenu."
+    - else
+      .workshop-content
+        != Redcarpet::Markdown.new(ContentRenderer, autolink: true).render(@workshop.content) if @workshop.content
+  .span3
+    #workshop-sidebar
+      - toc = Redcarpet::Markdown.new(TocRenderer).render(@workshop.content).html_safe if @workshop.content
+      - if toc.present?
+        #workshop-toc
+          .well
+            %ul.nav.nav-list
+              %li.nav-header= I18n.t "toc"
+              = toc
+      .well
+        %dl
+          %dt Dernière mise à jour
+          %dd= l(@workshop.updated_at, :format => :long)
+        = link_to t('.history'), history_workshop_path(@workshop), :class => 'btn btn-block' if can? :history, @workshop
+        = link_to t('.edit'), edit_workshop_path(@workshop), :class => 'btn btn-block' if can? :update, @workshop
+        = link_to t('.destroy'), workshop_path(@workshop), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @workshop

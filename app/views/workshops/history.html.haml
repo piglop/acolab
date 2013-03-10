@@ -1,0 +1,21 @@
+- content_for(:title, "Historique de l'atelier #{@workshop.name}")
+- add_crumb @workshop.name, @workshop
+- add_crumb "Historique"
+
+- require 'will_paginate/array'
+- versions = @workshop.versions.reverse.paginate(page: params[:page], per_page: 100)
+
+.row
+  .span12
+    %table.table
+      - versions.each_with_index do |version, i|
+        - next_version = versions[i+1]
+        %tr
+          %td= l(version.created_at)
+          %td= t(version.event, scope: "version")
+          %td= link_to_user User.where(id: version.terminator).first
+          %td= link_to "Voir", workshop_path(@workshop, version: version.id), class: "btn btn-primary"
+          %td= link_to "Modifier", edit_workshop_path(@workshop, version: version.id), class: "btn", title: "Modifier l'atelier actuel en partant de cette version"
+  
+  = will_paginate versions
+  

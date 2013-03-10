@@ -47,6 +47,7 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
+      history: Historique
       
     created: L'atelier a été créé.
     updated: L'atelier a été modifié.
