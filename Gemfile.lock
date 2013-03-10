@@ -11,11 +11,10 @@ GIT
     bootstrap_forms (2.0.8)
 
 GIT
-  remote: git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git
-  revision: c85405d7c28815c058fcc9a18a8f7498e6df7bfd
-  branch: rails_base_app
+  remote: git://github.com/ouvrages/ouvrages_scaffold.git
+  revision: b502f38b56b960b5d3885077c739f265832389c6
   specs:
-    rails-cancan-bootstrap-scaffold (0.0.1)
+    ouvrages_scaffold (0.1.0)
       bootstrap_forms
       httparty
 
@@ -244,12 +243,12 @@ DEPENDENCIES
   jquery-rails
   letters
   mysql2
+  ouvrages_scaffold!
   pagedown-rails
   paper_trail (~> 2)
   paperclip (~> 3.0)
   quiet_assets
   rails (~> 3.2.12)
-  rails-cancan-bootstrap-scaffold!
   redcarpet
   rolify
   rspec-rails (~> 2.0)
