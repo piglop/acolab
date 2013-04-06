@@ -20,7 +20,7 @@ Hackerspace::Application.routes.draw do
   
   resources :users
 
-  devise_for :users, path: 'auth'
+  devise_for :users, path: 'auth', controllers: {registrations: "registrations"}
 
   root :to =>  "home#index"
 
