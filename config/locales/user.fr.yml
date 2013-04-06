@@ -50,6 +50,7 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
+      edit_profile: "Modifier"
       
     created: Le participant a été créé.
     updated: Le participant a été modifié.

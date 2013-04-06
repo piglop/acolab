@@ -12,5 +12,6 @@
 
     .form-actions
       = link_to t('.back'), users_path, :class => 'btn'
+      = link_to t('.edit_profile'), edit_registration_path(@user), :class => 'btn' if current_user == @user
       = link_to t('.edit'), edit_user_path(@user), :class => 'btn' if can? :update, @user
       = link_to t('.destroy'), user_path(@user), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @user
