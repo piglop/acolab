@@ -9,7 +9,7 @@
       %dt= "Projets"
       - @user.projects.each do |project|
         %dd= link_to project.name, project
-    - if current_user.has_role? :admin
+    - if current_user and current_user.has_role? :admin
       %dl.dl-horizontal
         %dt= @user.class.human_attribute_name(:encrypted_password)
         %dd= @user.encrypted_password
