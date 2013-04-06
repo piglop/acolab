@@ -1,7 +1,10 @@
 $(document).ready ->
-  if $(".wmd-input").length > 0
+  $(".wmd-input").each ->
+    input = $(this)
+    suffix = input.attr("data-suffix")
     converter = new Markdown.Converter()
-    editor = new Markdown.Editor(converter)
+    editor = new Markdown.Editor(converter, suffix)
+    console.log editor
     
     editor.hooks.set "insertImageDialog", (callback) ->
       selector = $("#image-selector")

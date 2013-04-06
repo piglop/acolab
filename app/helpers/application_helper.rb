@@ -24,16 +24,24 @@ module ApplicationHelper
   def sanitized_object_name(object_name)
     object_name.gsub(/]\[|[^-\[\]a-zA-Z0-9:.]/,"_").sub(/_$/,"")
   end
-  
+
+  def sanitized_object_name_for_id(object_name)
+    object_name.gsub(/]\[|[^-a-zA-Z0-9:.]/,"-").sub(/-$/,"")
+  end
+
   def sanitized_method_name(method_name)
     method_name.sub(/\?$/, "")
   end
   
   def form_tag_id(object_name, method_name)
-    "#{sanitized_object_name(object_name.to_s)}_#{sanitized_method_name(method_name.to_s)}"
+    "#{sanitized_object_name_for_id(object_name.to_s)}-#{sanitized_method_name(method_name.to_s)}"
   end
 
   def form_tag_name(object_name, method_name)
     "#{sanitized_object_name(object_name.to_s)}[#{sanitized_method_name(method_name.to_s)}]"
+  end
+  
+  def render_content(content)
+    Redcarpet::Markdown.new(ContentRenderer, autolink: true).render(content).html_safe if content
   end
 end
