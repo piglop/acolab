@@ -223,7 +223,7 @@ fr:
     errors:
       <<: *errors
 
-  app: "Hackerspace"
+  app: "Acolab"
 
   navigation:
     home: Accueil
