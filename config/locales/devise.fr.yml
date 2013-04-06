@@ -52,6 +52,7 @@ fr:
           intro: Vous voulez nous quitter ?
           button: Supprimer mon compte
           confirm: "Votre compte sera supprimé. Êtes vous sûr ?"
+        back: Retour au profile
     sessions:
       signed_in: Connecté avec succès.
       signed_out: Déconnecté avec succès.
