@@ -17,7 +17,9 @@ class User < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :name, use: :slugged
-  
+
+  has_paper_trail
+
   def self.contributable(project)
     scoped.where("id != ?", project.author_id)
   end
