@@ -10,10 +10,10 @@
       - @user.projects.each do |project|
         %dd= link_to project.name, project
       
-      - profile = @user.profile
-      - %w( description skills projects wishes ).each do |field|
-        %dt= profile.class.human_attribute_name(field)
-        %dd= render_content(profile.send(field))
+      - if profile = @user.profile
+        - %w( description skills projects wishes ).each do |field|
+          %dt= profile.class.human_attribute_name(field)
+          %dd= render_content(profile.send(field))
 
     .form-actions
       = link_to t('.back'), users_path, :class => 'btn'
