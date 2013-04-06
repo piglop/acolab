@@ -1,24 +1,27 @@
 - content_for :title, t('.title')
 - add_crumb content_for(:title)
 
-.row
-  .span8
-    .well
-      = bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'form-horizontal'}) do |f|
+= bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'form-horizontal'}) do |f|
+  .row
+    .span12
+      .well
         = f.text_field :name
         = f.email_field :email, :autofocus => true
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           .alert.alert-warning= t(".waiting_confirmation", email: resource.unconfirmed_email)
+        = f.fields_for :profile, resource.profile || resource.build_profile do |fields|
+          = fields.text_area :description, rows: 10
+          = fields.text_area :skills, rows: 10
+          = fields.text_area :projects, rows: 10
+          = fields.text_area :wishes, rows: 10
         = f.password_field :password, autocomplete: "off", required: false, help_block: t(".leave_blank_to_keep")
         = f.password_field :password_confirmation, autocomplete: "off"
-        
-        .form-actions
-          = f.submit t('.submit'), :class => 'btn btn-primary'
+      .form-actions
+        = f.submit t('.submit'), :class => 'btn btn-primary'
+
+.row
+  .span12
     .well
       %h3= t(".cancel_my_account.title")
       %p= t(".cancel_my_account.intro")
       = button_to t(".cancel_my_account.button"), registration_path(resource_name), data: {confirm: t(".cancel_my_account.confirm")}, method: :delete, class: "btn btn-danger"
-
-  .span4
-    .well
-      = link_to t(".back"), :back
