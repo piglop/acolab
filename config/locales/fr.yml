@@ -240,3 +240,7 @@ fr:
     create: Création
     destroy: Suppression
     
+  article_without_title: Article sans titre
+  workshop_without_name: Atelier sans nom
+  project_without_name: Atelier sans nom
+  

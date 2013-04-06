@@ -9,4 +9,8 @@ class Project < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :name, use: :slugged
+  
+  def to_label
+    name.presence || I18n.t("project_without_name")
+  end
 end

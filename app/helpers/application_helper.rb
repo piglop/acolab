@@ -19,6 +19,18 @@ module ApplicationHelper
     end
   end
   
+  def link_to_record(record)
+    return nil if record.nil?
+    
+    case record
+    when User
+      link_to_user(record)
+    when Profile
+      link_to_user(record.user)
+    else
+      link_to record.to_label, record
+    end
+  end
   
   # See http://blog.chrisblunt.com/rails-getting-the-id-of-form-fields-inside-a-fields_for-block/
   def sanitized_object_name(object_name)

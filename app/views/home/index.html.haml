@@ -8,4 +8,16 @@
       = link_to "Acolab", articles_path, class: "btn"
       = link_to "Les ateliers", workshops_path, class: "btn"
       = link_to "Les participants", users_path, class: "btn"
-      
+.row
+  .span12
+    %h2 Dernières modifications
+    %ul
+      - Version.order("created_at DESC").limit(10).each do |version|
+        %li
+          - object = version.item
+          - if object
+            = "#{link_to_record object}, #{object.class.model_name.human}, #{l version.created_at}".html_safe
+            par
+            = link_to_user User.find(version.terminator)
+            
+          

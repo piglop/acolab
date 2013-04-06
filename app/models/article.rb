@@ -5,4 +5,8 @@ class Article < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :title, use: :slugged
+  
+  def to_label
+    title.presence || I18n.t("article_without_title")
+  end
 end
