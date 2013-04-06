@@ -1,0 +1,10 @@
+fr:
+  activerecord:
+    models:
+      profile: Profil
+    attributes:
+      profile:
+        description: Descriptif
+        skills: Compétences
+        projects: Projets
+        wishes: Souhaits/désirs
