@@ -22,7 +22,7 @@ module ApplicationHelper
   
   # See http://blog.chrisblunt.com/rails-getting-the-id-of-form-fields-inside-a-fields_for-block/
   def sanitized_object_name(object_name)
-    object_name.gsub(/]\[|[^-a-zA-Z0-9:.]/,"_").sub(/_$/,"")
+    object_name.gsub(/]\[|[^-\[\]a-zA-Z0-9:.]/,"_").sub(/_$/,"")
   end
   
   def sanitized_method_name(method_name)
