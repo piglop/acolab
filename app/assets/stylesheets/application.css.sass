@@ -13,6 +13,7 @@
 
 @import "twitter/bootstrap"
 @import 'twitter/bootstrap/responsive'
+@import 'compass/css3'
 @import 'select2'
 @import "*.sass"
 
@@ -68,4 +69,14 @@ input[type=text], input[type=email], input[type=password], textarea, .input-bloc
   
 .anonymous-user
   font-style: italic
-  
+
+.markdown-content-form
+  .control-group
+    .controls
+      .input-block, .preview-block
+        +inline-block(top)
+        width: 50%
+        +box-sizing(border-box)
+
+      .preview-block
+        padding: 0 1em

@@ -28,6 +28,7 @@ group :assets do
   gem 'bootstrap-sass-rails'
   
   gem 'turbo-sprockets-rails3'
+  gem 'compass-rails'
 end
 
 gem 'jquery-rails'
