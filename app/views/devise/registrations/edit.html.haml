@@ -4,16 +4,15 @@
 = bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'form-horizontal'}) do |f|
   .row
     .span12
-      .well
-        = f.text_field :name
-        = f.email_field :email, :autofocus => true
-        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-          .alert.alert-warning= t(".waiting_confirmation", email: resource.unconfirmed_email)
-        = f.fields_for :profile, resource.profile || resource.build_profile do |fields|
-          - %w( description skills projects wishes ).each do |field|
-            = render "shared/markdown_content_form", f: fields, field: field, rows: 10
-        = f.password_field :password, autocomplete: "off", required: false, help_block: t(".leave_blank_to_keep")
-        = f.password_field :password_confirmation, autocomplete: "off"
+      = f.text_field :name
+      = f.email_field :email, :autofocus => true
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        .alert.alert-warning= t(".waiting_confirmation", email: resource.unconfirmed_email)
+      = f.fields_for :profile, resource.profile || resource.build_profile do |fields|
+        - %w( description skills projects wishes ).each do |field|
+          = render "shared/markdown_content_form", f: fields, field: field, rows: 10
+      = f.password_field :password, autocomplete: "off", required: false, help_block: t(".leave_blank_to_keep")
+      = f.password_field :password_confirmation, autocomplete: "off"
       .form-actions
         = f.submit t('.submit'), :class => 'btn btn-primary'
 
