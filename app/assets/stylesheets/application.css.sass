@@ -73,10 +73,41 @@ input[type=text], input[type=email], input[type=password], textarea, .input-bloc
 .markdown-content-form
   .control-group
     .controls
-      .input-block, .preview-block
-        +inline-block(top)
-        width: 50%
-        +box-sizing(border-box)
+      position: relative
+      
+      .input-block
+        padding-right: 50%
 
       .preview-block
+        position: absolute
+        left: 50%
+        right: 0
+        top: 0
+        bottom: 0
         padding: 0 1em
+        
+        .preview-title
+          height: 20px
+          font-size: 16px
+        
+        .preview
+          border: 1px solid #cccccc
+          +border-radius(3px)
+          padding: 4px 6px
+          background: #fafafa
+          
+          position: absolute
+          top: 25px
+          bottom: 0
+          left: 1em
+          right: 0
+          overflow: auto
+
+@media (max-width: 979px)
+  .markdown-content-form
+    .control-group
+      .controls
+        .preview-block
+          .preview-title
+            display: none
+            

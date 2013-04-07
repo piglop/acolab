@@ -22,8 +22,9 @@
       %label{for: "wmd-input-#{id}"}= f.object.class.human_attribute_name(field)
       %span.help-block au format Markdown
     .controls
-      %div{id: "wmd-button-bar-#{id}"}
-      .input-block<>
+      .button-bar{id: "wmd-button-bar-#{id}"}
+      .input-block
         %textarea.wmd-input{class: "wmd-input-#{id}", name: form_tag_name(f.object_name, field), rows: 20, data: {suffix: "-#{id}"}}= f.object.send(field)
-      .preview-block<>
-        %div{id: "wmd-preview-#{id}"}
+      .preview-block
+        .preview-title Prévisualisation&nbsp;:
+        .preview{id: "wmd-preview-#{id}"}
