@@ -78,3 +78,4 @@ gem 'select2-rails'
 gem 'will_paginate-bootstrap', :git => "git://github.com/piglop/will_paginate-bootstrap.git", :branch => "require_will_paginate"
 gem "friendly_id", "~> 4.0.9"
 gem 'exception_notification'
+gem 'piwik_analytics', '~> 1.0.1'
