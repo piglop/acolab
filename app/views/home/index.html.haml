@@ -16,8 +16,6 @@
         %li
           - object = version.item
           - if object
-            = "#{link_to_record object}, #{object.class.model_name.human}, #{l version.created_at}".html_safe
+            = "#{link_to_record object}, le #{l version.created_at}".html_safe
             par
             = link_to_user User.find(version.terminator)
-            
-          
